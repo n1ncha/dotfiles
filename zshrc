@@ -1,33 +1,27 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+source ./.tweak/antigen/antigen.zsh
 
-eval `dircolors ~.dircolors`
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-ZSH_THEME="sunrise"
-HIST_STAMPS="yyyy-mm-dd"
-plugins=(git python screen colorize copydir copyfile fasd virtualenvwrapper)
+eval `dircolors .dircolors`
 
-source $ZSH/oh-my-zsh.sh
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+
+antigen theme funky
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Tell antigen that you're done.
+antigen apply
+
+
 
 export WORKON_HOME=/usr/local/share/venvs
 export PROJECT_HOME=$HOME/projects
 source /usr/local/bin/virtualenvwrapper.sh
-# Completion
-zmodload zsh/complist
-autoload -U compinit
-compinit
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' \
-        max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
-zstyle ':completion:*:functions' ignored-patterns '_*'
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always
-zstyle ':completion:*' squeeze-slashes true
-
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 
-
