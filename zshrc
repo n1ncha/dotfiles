@@ -12,7 +12,7 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
 
-antigen theme funky
+antigen theme robbyrussell
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
