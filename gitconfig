@@ -3,3 +3,5 @@
 	email = steven.j.crockett@gmail.com
 [diff]
 	submodule = log
+[core]
+	editor = vim
