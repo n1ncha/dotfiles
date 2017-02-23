@@ -14,7 +14,6 @@ vim:
 	ln -fs $(CFGROOT)/vim/bundle ${HOME}/.vim/bundle
 zsh:
 	ln -fs $(CFGROOT)/zshrc ${HOME}/.zshrc
-	ln -fs $(CFGROOT)/zsh/alias ${HOME}/.zsh/alias
 uninstall:
 	rm -rf ${HOME}/.bin
 	rm -rf ${HOME}/.vim
